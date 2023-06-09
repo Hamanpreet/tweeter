@@ -1,10 +1,11 @@
-"use strict";
+"use strict"; //nables strict mode in JavaScript, helps catch common coding mistakes and potential bugs.
 
 const userHelper    = require("../lib/util/user-helper")
 
 const express       = require('express');
 const tweetsRoutes  = express.Router();
 
+//exporting it to be used by express application
 module.exports = function(DataHelpers) {
 
   tweetsRoutes.get("/", function(req, res) {
