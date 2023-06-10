@@ -1,10 +1,10 @@
 header {
   display:flex;
-  height:620px;
+  height:520px;
   width:100%;
   flex-direction:column;
   justify-content:center;
-  align-items:center;
+  padding-top:70px;
   background-color: orange;
   background-image: url("/images/back-pattern.png");
   background-size:cover;
