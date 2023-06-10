@@ -16,11 +16,23 @@ html {
 
 body {
   color: #545149;
+  width:100%;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family:"Source Sans Pro";
+  text-align:center;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+.container {
+  display:flex;
+  width: 90%;
+  background-color: inherit;
+  color:grey;
+}
+
+hr {
+  height:2px;
+}
