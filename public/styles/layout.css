@@ -17,7 +17,6 @@ html {
 body {
   color: #545149;
   width:100%;
-  height:100%;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family:"Source Sans Pro";
@@ -37,16 +36,13 @@ body {
   color:grey;
 } */
 
-.area {
+.container {
+  display:flex;
   width:90%;
+  height:100%;
+  flex-direction:column;
   background-color: inherit;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
-  text-align:left;
-}
-hr {
-  height:2px;
-  background-color:grey;
-  border-color:grey;
+  
 }
