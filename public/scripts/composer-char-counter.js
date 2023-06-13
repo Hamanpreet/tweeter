@@ -2,7 +2,6 @@
  * function runs a callback when DOM is ready to be manipulated with jQuery
 */
 $(document).ready(function() {
-  let count = 0;
   $("#tweet-text").on("input",function() {
     //get the value of text-area
     var inputValue = $(this).val();
