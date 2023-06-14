@@ -42,12 +42,13 @@ button {
   color:red;
 }
 
-#tweets-container {
+#tweet {
   text-align:left;
   width:100%;
   background-color:inherit;
   border:3px solid grey;
   margin-top:30px;
+  margin-bottom: 30px;;
 }
 
 .tweet-header {
