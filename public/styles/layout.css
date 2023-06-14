@@ -36,11 +36,12 @@ body {
   color:grey;
 } */
 
-#container {
+.container {
   display:flex;
   width:90%;
   height:100%;
   flex-direction:column;
+  justify-content:center;
   background-color: inherit;
   margin-left: auto;
   margin-right: auto;
