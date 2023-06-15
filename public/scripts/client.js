@@ -86,7 +86,7 @@ $(document).ready(function() {
   });
   
   $(".formclass").on("submit", function(event) {
-    event.preventDefault();
+    //event.preventDefault();
   
     var inputLength = $("#tweet-text").val().length;
   
