@@ -3,32 +3,9 @@
 * jQuery is already loaded
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
-$(document).ready(function() {
-  const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 20120620
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
 
+$(document).ready(function() {
+  
  /**
  * Using jQuery to construct new elements using $ function
  * @param {object} tweets 
@@ -70,32 +47,39 @@ $(document).ready(function() {
   * responsible for fetching tweets from /tweets page
   */
   const loadTweets = function() {
-    
-  }
+    $.get("/tweets")
+    .then(res => {
+      renderTweets(res);
+      console.log(res);
+    })
+    .catch (err => {
+      console.log(err);
+    })
+  };
+  loadTweets();
 
  /**
  * function to convert timestamp into days ago
  */
   const formatTimestamp = function(timestamp) {
-    currentDate = moment();
-    const tweetDate = moment(timestamp);
-    const diffDuration = moment.duration(currentDate.diff(tweetDate));
-    if (diffDuration.asSeconds() < 60) {
-      return "Just now";
-    } else if (diffDuration.asMinutes() < 60) {
-      return `${Math.floor(diffDuration.asMinutes())} minute${Math.floor(diffDuration.asMinutes()) !== 1 ? "s" : ""} ago`;
-    } else if (diffDuration.asHours() < 24) {
-      return `${Math.floor(diffDuration.asHours())} hour${Math.floor(diffDuration.asHours()) !== 1 ? "s" : ""} ago`;
-    } else if (diffDuration.asDays() < 30) {
-      return `${Math.floor(diffDuration.asDays())} day${Math.floor(diffDuration.asDays()) !== 1 ? "s" : ""} ago`;
-    } else if (diffDuration.asMonths() < 12) {
-      return `${Math.floor(diffDuration.asMonths())} month${Math.floor(diffDuration.asMonths()) !== 1 ? "s" : ""} ago`;
-    } else {
-      return `${Math.floor(diffDuration.asYears())} year${Math.floor(diffDuration.asYears()) !== 1 ? "s" : ""} ago`;
-    }
+  // Get the current date and time
+const now = new Date();
+
+// Convert the timestamp to a Date object
+const date = new Date(timestamp);
+
+// Calculate the time difference in milliseconds
+const timeDiff = now.getTime() - date.getTime();
+
+// Convert the time difference to days
+const daysAgo = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+// Use the timeago library to format the result
+const formattedDate = timeago.format(date);
+ return formattedDate;
   };
 
-  renderTweets(data);
+  //renderTweets(data);
 
   $(".formclass").on("submit",function(event) {
     //prevents html behavoiur of form to submit and prevents refresh
