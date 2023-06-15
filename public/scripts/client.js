@@ -5,19 +5,34 @@
 */
 
 $(document).ready(function() {
-  
+ 
+  /**
+   * Function to escape user text to prevent XSS attacks
+   */
+  const escape = function (str) {
+    //creates temporary div element
+    let div = document.createElement("div");
+    //appends a text node(text is treated as plain text not as HTML code)
+    div.appendChild(document.createTextNode(str));
+    //convert escaped text back to html
+    return div.innerHTML;
+  };
+ ; 
  /**
  * Using jQuery to construct new elements using $ function
  * @param {object} tweets 
  */
   const createTweetElement = function(tweet) {
+    const safeHTML = `<p>${escape(tweet.content.text)}</p>`
     const $tweet = $(`
     <article id="tweet">
         <header class="tweet-header">
-          <p><i class="fa-solid fa-user"></i>${tweet.user.name}</p>
+          <p class="tweet-header-icons">
+            <i class="fa-solid fa-user"></i> ${tweet.user.name}
+          </p>
           <p class="tweet-header-handle">${tweet.user.handle}</p>
         </header>
-        <p class="tweet-text">${tweet.content.text}</p>
+        <p class="tweet-text">${safeHTML}</p>
         <hr>
         <footer class="tweet-footer">
           <p class="tweet-footer-info">${formatTimestamp(tweet.created_at)}</p>
@@ -31,6 +46,20 @@ $(document).ready(function() {
     `);
     return $tweet;
   };
+
+  $("#tweet").on("mouseenter", function() {
+    $(this).addClass("hover");
+  });
+  $("#tweet").on("mouseleave", function() {
+    $(this).removeClass("hover");
+  });
+  $(".tweet-footer-icons i").on("mouseenter", function() {
+    //console.log(this);
+    $(this).addClass("hovered");
+  });
+  $(".tweet-footer-icons i").on("mouseleave", function() {
+    $(this).removeClass("hovered");
+  });
 
  /**
  * Taking an array of tweet objects & appending each to #tweets-container
@@ -56,6 +85,7 @@ $(document).ready(function() {
       console.log(err);
     })
   };
+
   loadTweets();
 
  /**
@@ -105,19 +135,4 @@ $(document).ready(function() {
         });
     }
   })
-
-
-  $("#tweet").on("mouseenter", function() {
-    $(this).addClass("hover");
-  });
-  $("#tweet").on("mouseleave", function() {
-    $(this).removeClass("hover");
-  });
-  $(".tweet-footer-icons i").on("mouseenter", function() {
-    //console.log(this);
-    $(this).addClass("hovered");
-  });
-  $(".tweet-footer-icons i").on("mouseleave", function() {
-    $(this).removeClass("hovered");
-  });
 });

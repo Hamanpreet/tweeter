@@ -9,7 +9,7 @@ h2 {
 }
 
 .new-tweet {
-  margin-top:5px;
+  margin-top:20px;
 }
 
 #tweet-text {
@@ -38,6 +38,11 @@ button {
   margin-top:10px;
 }
 
+.counter {
+  font-family: Bungee;
+  font-size: 20px;
+}
+
 .counter-red {
   color:red;
 }
@@ -58,6 +63,9 @@ button {
   margin-right:10px;
 }
 
+.tweet-header-icons i {
+  margin-right:10px;
+}
 .tweet-text {
   margin-left:15px;
 }
