@@ -50,7 +50,7 @@ $(document).ready(function() {
     $.get("/tweets")
     .then(res => {
       renderTweets(res);
-      console.log(res);
+      //console.log(res);
     })
     .catch (err => {
       console.log(err);
@@ -63,44 +63,55 @@ $(document).ready(function() {
  */
   const formatTimestamp = function(timestamp) {
   // Get the current date and time
-const now = new Date();
+    const now = new Date();
 
-// Convert the timestamp to a Date object
-const date = new Date(timestamp);
+    // Convert the timestamp to a Date object
+    const date = new Date(timestamp);
 
-// Calculate the time difference in milliseconds
-const timeDiff = now.getTime() - date.getTime();
+    // Calculate the time difference in milliseconds
+    const timeDiff = now.getTime() - date.getTime();
 
-// Convert the time difference to days
-const daysAgo = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    // Convert the time difference to days
+    const daysAgo = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
 
-// Use the timeago library to format the result
-const formattedDate = timeago.format(date);
- return formattedDate;
+    // Use the timeago library to format the result
+    const formattedDate = timeago.format(date);
+    return formattedDate;
   };
 
   //renderTweets(data);
 
-  $(".formclass").on("submit",function(event) {
-    //prevents html behavoiur of form to submit and prevents refresh
-    event.preventDefault();
-    const data = $(".formclass").serialize();
-    $.post("/tweets",data) 
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-
+  $("#tweet-text").on("input", function() {
+    
   });
+  
+  $(".formclass").on("submit", function(event) {
+    event.preventDefault();
+  
+    var inputLength = $("#tweet-text").val().length;
+  
+    if (inputLength === 0) {
+      alert("You cannot post an empty tweet");
+    } else if (inputLength > 140) {
+      alert("Tweet shouldn't have more than 140 characters");
+    } else {
+      const data = $(".formclass").serialize();
+      $.post("/tweets", data)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  })
 
 
   $("#tweet").on("mouseenter", function() {
-    $("#tweet").addClass("hover");
+    $(this).addClass("hover");
   });
   $("#tweet").on("mouseleave", function() {
-    $("#tweet").removeClass("hover");
+    $(this).removeClass("hover");
   });
   $(".tweet-footer-icons i").on("mouseenter", function() {
     //console.log(this);

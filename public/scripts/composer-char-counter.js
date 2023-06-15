@@ -16,6 +16,8 @@ $(document).ready(function() {
   });
 });
 
+
+
 // //specify the DOM node to reference using the document.getElementById method and put that reference in a variable
 // const box = document.getElementById("tweet-text");
 
