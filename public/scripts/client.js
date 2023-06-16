@@ -47,20 +47,6 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  $("#tweet").on("mouseenter", function() {
-    $(this).addClass("hover");
-  });
-  $("#tweet").on("mouseleave", function() {
-    $(this).removeClass("hover");
-  });
-  $(".tweet-footer-icons i").on("mouseenter", function() {
-    //console.log(this);
-    $(this).addClass("hovered");
-  });
-  $(".tweet-footer-icons i").on("mouseleave", function() {
-    $(this).removeClass("hovered");
-  });
-
  /**
  * Taking an array of tweet objects & appending each to #tweets-container
  */
@@ -117,14 +103,16 @@ $(document).ready(function() {
   
   $(".formclass").on("submit", function(event) {
     //event.preventDefault();
-  
     var inputLength = $("#tweet-text").val().length;
-  
     if (inputLength === 0) {
-      alert("You cannot post an empty tweet");
+      var errorMessage = "You cannot post an empty tweet.";
+      $("#error-message").text(errorMessage).slideDown();
+      
     } else if (inputLength > 140) {
-      alert("Tweet shouldn't have more than 140 characters");
+      var errorMessage = "Tweet shouldn't have more than 140 characters.";
+      $("#error-message").text(errorMessage).slideDown();
     } else {
+      
       const data = $(".formclass").serialize();
       $.post("/tweets", data)
         .then(res => {

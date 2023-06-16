@@ -53,7 +53,7 @@ button {
   background-color:inherit;
   border:3px solid grey;
   margin-top:30px;
-  margin-bottom: 30px;;
+  margin-bottom: 30px;
 }
 
 .tweet-header {
@@ -68,6 +68,7 @@ button {
 }
 .tweet-text {
   margin-left:15px;
+  
 }
 hr {
   width:96%;
@@ -87,7 +88,7 @@ i {
   color:#4056A1;
 }
 
-.hover {
+#tweet:hover {
   box-shadow:5px 5px 0 rgba(0,0,200,0.2);
 }
 
@@ -102,10 +103,20 @@ i {
   width:8%;
 }
 
-.tweet-footer-icons i.hovered {
+.tweet-footer-icons i:hover {
   color:orange;
 }
 
 .tweet-header-handle {
   color:rgba(0,0,20,0.2);
+}
+
+#error-message {
+  display:none;
+ color:red;
+ margin-top:10px;
+ border:3px solid red;
+ padding:10px;
+ height:50px
+ 
 }
