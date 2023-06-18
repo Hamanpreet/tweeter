@@ -1,6 +1,7 @@
 /** 
  * function runs a callback when DOM is ready to be manipulated with jQuery
 */
+
 $(document).ready(function() {
   $("#tweet-content").on("input", function() {
     //get the value of text-area
@@ -14,6 +15,19 @@ $(document).ready(function() {
       $(this).closest('.new-tweet').find(".counter").removeClass("counter-red");
     }
   });
+
+  function setFocus() {
+    var input = document.getElementById("tweet-content");
+    input.focus();
+  }
+  $("body").on( "scroll", function() {
+    $(".scroll-top").css('display','flex');
+  $(".scroll-top").on ("click", () => {
+    window.scroll(0,0);
+    $(".new-tweet").slideDown();
+    setFocus();
+  });
+});
 });
 
 
