@@ -36,7 +36,7 @@ $(document).ready(function () {
         <p class="tweet-text"><b> ${safeHTML}</b></p>
         <hr>
         <footer class="tweet-footer">
-          <p class="tweet-footer-info">${formatTimestamp(tweet.created_at)}</p>
+          <p class="tweet-footer-info">${timeago.format(tweet.created_at)}</p>
           <div class="tweet-footer-icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -80,28 +80,6 @@ $(document).ready(function () {
 
   loadTweets();
 
-  /**
-  * function to convert timestamp into days ago
-  */
-  const formatTimestamp = function (timestamp) {
-    // Get the current date and time
-    const now = new Date();
-
-    // Convert the timestamp to a Date object
-    const date = new Date(timestamp);
-
-    // Calculate the time difference in milliseconds
-    const timeDiff = now.getTime() - date.getTime();
-
-    // Convert the time difference to days
-    const daysAgo = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-
-    // Use the timeago library to format the result
-    const formattedDate = timeago.format(date);
-    return formattedDate;
-  };
-
-
   $("#tweet-text").on("input", function () {
 
   });
@@ -109,21 +87,26 @@ $(document).ready(function () {
   $("#nav-button").on("click", function () {
     $(".new-tweet").slideDown();
     setFocus();  
-    $(".formclass").on("submit", function (e) {
+    $("#form-id").on("submit", function (e) {
       e.preventDefault();
       var inputLength = $("#tweet-content").val().length;
       if (inputLength === 0) {
         var errorMessage = "You cannot post an empty tweet.";
-        $("#error-message").text(errorMessage).slideDown();
+        $("#error-message").text(errorMessage).slideDown("slow");
 
       } else if (inputLength > 140) {
         var errorMessage = "Tweet shouldn't have more than 140 characters.";
-        $("#error-message").text(errorMessage).slideDown();
+        $("#error-message").text(errorMessage).slideDown("slow");
       } else {
-        const data = $(".formclass").serialize();
+        $("#error-message").slideUp("slow");
+        const data = $("#form-id").serialize();
         $.post("/tweets", data)
           .then(res => {
             loadTweets();
+            document.getElementById("form-id").reset();
+            jQuery(".counter").text("140");
+            $(".new-tweet").slideUp();
+
           })
           .catch(err => {
             console.log(err);
