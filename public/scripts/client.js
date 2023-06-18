@@ -23,16 +23,16 @@ $(document).ready(function() {
  * @param {object} tweets 
  */
   const createTweetElement = function(tweet) {
-    const safeHTML = `<p>${escape(tweet.content.text)}</p>`
+    const safeHTML = `${escape(tweet.content.text)}`
     const $tweet = $(`
     <article id="tweet">
         <header class="tweet-header">
           <p class="tweet-header-icons">
-            <i class="fa-solid fa-user"></i> ${tweet.user.name}
+            <img src="${tweet.user.avatars}"> ${tweet.user.name}
           </p>
           <p class="tweet-header-handle">${tweet.user.handle}</p>
         </header>
-        <p class="tweet-text">${safeHTML}</p>
+        <p class="tweet-text"><b> ${safeHTML}</b></p>
         <hr>
         <footer class="tweet-footer">
           <p class="tweet-footer-info">${formatTimestamp(tweet.created_at)}</p>
@@ -107,7 +107,7 @@ $(document).ready(function() {
     if (inputLength === 0) {
       var errorMessage = "You cannot post an empty tweet.";
       $("#error-message").text(errorMessage).slideDown();
-      
+
     } else if (inputLength > 140) {
       var errorMessage = "Tweet shouldn't have more than 140 characters.";
       $("#error-message").text(errorMessage).slideDown();
