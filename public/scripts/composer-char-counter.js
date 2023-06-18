@@ -20,13 +20,15 @@ $(document).ready(function() {
     var input = document.getElementById("tweet-content");
     input.focus();
   }
-  $("body").on( "scroll", function() {
+  $(window).on( "scroll", function() {
     $(".scroll-top").css('display','flex');
   $(".scroll-top").on ("click", () => {
     window.scroll(0,0);
     $(".new-tweet").slideDown();
     setFocus();
+    $(".scroll-top").css('display','none');
   });
+  
 });
 });
 
