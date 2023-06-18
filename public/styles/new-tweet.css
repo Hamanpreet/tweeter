@@ -7,11 +7,11 @@
   font-size:30px;
 }
 .new-tweet {
-  display:none;
+  display: none;
   margin-top:20px;
 }
 
-#tweet-text {
+#tweet-content {
   background-color: inherit;
   border-bottom-color: grey;
   border-left:none;

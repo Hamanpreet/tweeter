@@ -4,11 +4,12 @@
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-$(document).ready(function() {
- 
+$(document).ready(function () {
+
   /**
-   * Function to escape user text to prevent XSS attacks
-   */
+  * Function to escape user text to prevent XSS attacks
+  * @param string
+  */
   const escape = function (str) {
     //creates temporary div element
     let div = document.createElement("div");
@@ -17,18 +18,18 @@ $(document).ready(function() {
     //convert escaped text back to html
     return div.innerHTML;
   };
- ; 
- /**
- * Using jQuery to construct new elements using $ function
- * @param {object} tweets 
- */
-  const createTweetElement = function(tweet) {
+  
+  /**
+  * Using jQuery to construct new elements using $ function
+  * @param {object} tweets 
+  */
+  const createTweetElement = function (tweet) {
     const safeHTML = `${escape(tweet.content.text)}`
     const $tweet = $(`
     <article id="tweet">
         <header class="tweet-header">
           <p class="tweet-header-icons">
-            <img src="${tweet.user.avatars}"> ${tweet.user.name}
+            <img src="${tweet.user.avatars}" alt="user-icon"> ${tweet.user.name}
           </p>
           <p class="tweet-header-handle">${tweet.user.handle}</p>
         </header>
@@ -47,38 +48,43 @@ $(document).ready(function() {
     return $tweet;
   };
 
- /**
- * Taking an array of tweet objects & appending each to #tweets-container
- */
-  const renderTweets = function(tweets) {
+  function setFocus() {
+    var input = document.getElementById("tweet-content");
+    input.focus();
+  }
+
+
+  /**
+  * Taking an array of tweet objects & appending each to #tweets-container
+  */
+  const renderTweets = function (tweets) {
     $("#tweets-container").empty();
-    for(let tweet of tweets) {
+    for (const tweet of tweets) {
       const value = createTweetElement(tweet);
       $("#tweets-container").prepend(value);
     }
   };
 
- /**
-  * responsible for fetching tweets from /tweets page
+  /**
+   * responsible for fetching tweets from /tweets page
   */
-  const loadTweets = function() {
+  const loadTweets = function () {
     $.get("/tweets")
-    .then(res => {
-      renderTweets(res);
-      //console.log(res);
-    })
-    .catch (err => {
-      console.log(err);
-    })
+      .then(res => {
+        renderTweets(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
   };
 
   loadTweets();
 
- /**
- * function to convert timestamp into days ago
- */
-  const formatTimestamp = function(timestamp) {
-  // Get the current date and time
+  /**
+  * function to convert timestamp into days ago
+  */
+  const formatTimestamp = function (timestamp) {
+    // Get the current date and time
     const now = new Date();
 
     // Convert the timestamp to a Date object
@@ -95,36 +101,34 @@ $(document).ready(function() {
     return formattedDate;
   };
 
-  //renderTweets(data);
 
-  $("#tweet-text").on("input", function() {
-    
+  $("#tweet-text").on("input", function () {
+
   });
-  
-  $(".formclass").on("submit", function(event) {
-    //event.preventDefault();
-    var inputLength = $("#tweet-text").val().length;
-    if (inputLength === 0) {
-      var errorMessage = "You cannot post an empty tweet.";
-      $("#error-message").text(errorMessage).slideDown();
 
-    } else if (inputLength > 140) {
-      var errorMessage = "Tweet shouldn't have more than 140 characters.";
-      $("#error-message").text(errorMessage).slideDown();
-    } else {
-      
-      const data = $(".formclass").serialize();
-      $.post("/tweets", data)
-        .then(res => {
-          console.log(res);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  })
-
-  $("#nav-button").on("click", function(e) {
+  $("#nav-button").on("click", function () {
     $(".new-tweet").slideDown();
+    setFocus();  
+    $(".formclass").on("submit", function (e) {
+      e.preventDefault();
+      var inputLength = $("#tweet-content").val().length;
+      if (inputLength === 0) {
+        var errorMessage = "You cannot post an empty tweet.";
+        $("#error-message").text(errorMessage).slideDown();
+
+      } else if (inputLength > 140) {
+        var errorMessage = "Tweet shouldn't have more than 140 characters.";
+        $("#error-message").text(errorMessage).slideDown();
+      } else {
+        const data = $(".formclass").serialize();
+        $.post("/tweets", data)
+          .then(res => {
+            loadTweets();
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    })
   });
 });

@@ -28,5 +28,6 @@ nav {
 #nav-button {
   border:none;
   background-color: transparent;
-  color: #FFFFFF; 
+  color: #FFFFFF;
+  cursor: pointer;
 }
