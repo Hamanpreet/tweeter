@@ -48,11 +48,6 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  function setFocus() {
-    var input = document.getElementById("tweet-content");
-    input.focus();
-  }
-
 
   /**
   * Taking an array of tweet objects & appending each to #tweets-container
@@ -86,7 +81,7 @@ $(document).ready(function () {
 
   $("#nav-button").on("click", function () {
     $(".new-tweet").slideDown();
-    setFocus();  
+    $("#tweet-content").focus();  
     $("#form-id").on("submit", function (e) {
       e.preventDefault();
       var inputLength = $("#tweet-content").val().length;

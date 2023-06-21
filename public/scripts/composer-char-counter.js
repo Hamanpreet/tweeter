@@ -18,7 +18,7 @@ $(document).ready(function() {
 
 
   $(window).on( "scroll", function() {
-    if ($(window).scrollTop() > 100) {
+    if ($(window).scrollTop() > 300) {
       $('.scroll-top').fadeIn('50');
       $('#nav-button').fadeOut('50');
     } else {
@@ -32,7 +32,6 @@ $(document).ready(function() {
     $(".new-tweet").slideDown();
     $("#tweet-content").focus();
   });
-  
 
 });
 
