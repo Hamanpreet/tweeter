@@ -16,29 +16,23 @@ $(document).ready(function() {
     }
   });
 
-  function setFocus() {
-    var input = document.getElementById("tweet-content");
-    input.focus();
-  }
+
   $(window).on( "scroll", function() {
-    $(".scroll-top").css('display','flex');
+    if ($(window).scrollTop() > 100) {
+      $('.scroll-top').fadeIn('50');
+      $('#nav-button').fadeOut('50');
+    } else {
+      $('.scroll-top').fadeOut('50');
+      $('#nav-button').fadeIn('50');
+    }
+  });
+
   $(".scroll-top").on ("click", () => {
     window.scroll(0,0);
     $(".new-tweet").slideDown();
-    setFocus();
-    $(".scroll-top").css('display','none');
+    $("#tweet-content").focus();
   });
   
+
 });
-});
-
-
-
-// //specify the DOM node to reference using the document.getElementById method and put that reference in a variable
-// const box = document.getElementById("tweet-text");
-
-// // when box is clicked, run the function
-// box.addEventListener("click", () => {
-//   console.log("You clicked on box.");
-// });
 
