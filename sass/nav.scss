@@ -1,7 +1,10 @@
+@import '_variables';
+
+
 nav {
   display:flex;
-  background-color: #4056A1;
-  color: #FFFFFF; 
+  background-color: $accent-color;
+  color: $primary-color; 
   justify-content:space-between;
   align-items:center;
   height:120px;
@@ -27,7 +30,7 @@ nav {
   #nav-button {
     border:none;
     background-color: transparent;
-    color: #FFFFFF;
+    color: $primary-color;
     cursor: pointer;
   }  
   

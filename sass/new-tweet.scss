@@ -1,3 +1,5 @@
+@import '_variables';
+
 #form-id {
   display:flex;
   flex-direction:column;
@@ -25,8 +27,8 @@
 }
 
 #tweet-button {
-  background-color: #4056A1;
-  color: #FFFFFF; 
+  background-color: $accent-color;
+  color: $primary-color; 
   font-family: Bungee;
   outline:none;
   border:none;
@@ -44,7 +46,7 @@
 }
 
 .counter-red {
-  color:red;
+  color:$error-color;
 }
 
 #tweet {
@@ -91,7 +93,7 @@ hr {
 }
 
 i {
-  color:#4056A1;
+  color: $accent-color;
 }
 
 #tweet:hover {
@@ -123,17 +125,17 @@ i {
 
 #error-message {
  display:none;
- color:red;
+ color:$error-color;
  overflow:auto;
  margin-top:10px;
- border:3px solid red;
+ border:3px solid $error-color;
  height:50px;
  vertical-align:middle;
 }
 
 .scroll-top {
   display:none;
-  background-color: red;
+  background-color: $error-color;
   height:60px;
   width:60px;
   position:fixed;

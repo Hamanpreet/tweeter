@@ -1,9 +1,14 @@
-#avatar-name {
+@mixin verticalCenter($direction) {
   display:flex;
+  flex-direction:$direction;
+  justify-content:center;
+  
+}
+
+#avatar-name {
+  @include verticalCenter(column);
   height:520px;
   width:100%;
-  flex-direction:column;
-  justify-content:center;
   padding-top:70px;
   background-color: orange;
   background-image: url("/images/back-pattern.png");
@@ -11,8 +16,6 @@
 }
 
 .avatar {
-  justify-content:center;
-  align-items:center;
   margin-bottom:-50px;
 }
 

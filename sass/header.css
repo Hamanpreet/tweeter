@@ -1,9 +1,9 @@
 #avatar-name {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   height: 520px;
   width: 100%;
+  flex-direction: column;
+  justify-content: center;
   padding-top: 70px;
   background-color: orange;
   background-image: url("/images/back-pattern.png");
@@ -11,9 +11,11 @@
 }
 
 .avatar {
+  justify-content: center;
+  align-items: center;
   margin-bottom: -50px;
 }
 
 h2 {
   padding-top: 10px;
-}
+}/*# sourceMappingURL=header.css.map */
