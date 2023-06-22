@@ -1,22 +1,25 @@
 #avatar-name {
-  display:flex;
-  height:520px;
-  width:100%;
-  flex-direction:column;
-  justify-content:center;
-  padding-top:70px;
+  display: flex;
+  height: 520px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 70px;
   background-color: orange;
   background-image: url("/images/back-pattern.png");
-  background-size:cover;
+  background-size: cover;
+
+  .avatar {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -50px;
+  }
+
+  h2 {
+    padding-top: 10px;
+  }
 }
 
-.avatar {
-  justify-content:center;
-  align-items:center;
-  margin-bottom:-50px;
-}
 
-h2 {
-  padding-top:10px;
-}
+
 

@@ -1,41 +1,43 @@
 #form-id {
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   text-align: left;
 }
+
 #name {
-  font-size:30px;
+  font-size: 30px;
 }
+
 .new-tweet {
   display: none;
-  margin-top:20px;
+  margin-top: 20px;
 }
 
 #tweet-content {
   background-color: inherit;
   border-bottom-color: grey;
-  border-left:none;
-  border-right:none;
-  border-top:none;
-  outline:none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
   border-bottom-width: 3px;
-  margin-top:10px;
-  height:40px;
+  margin-top: 10px;
+  height: 40px;
   font-weight: bold;
 }
 
 #tweet-button {
   background-color: #4056A1;
-  color: #FFFFFF; 
+  color: #FFFFFF;
   font-family: Bungee;
-  outline:none;
-  border:none;
+  outline: none;
+  border: none;
 }
 
 .bottom {
-  display:flex;
-  justify-content:space-between;
-  margin-top:10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .counter {
@@ -44,109 +46,107 @@
 }
 
 .counter-red {
-  color:red;
+  color: red;
 }
 
 #tweet {
-  text-align:left;
-  width:100%;
-  background-color:inherit;
-  border:3px solid grey;
-  margin-top:30px;
+  text-align: left;
+  width: 100%;
+  background-color: inherit;
+  border: 3px solid grey;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 
 .tweet-header {
-  display:flex;
-  justify-content:space-between;
-  margin-left:10px;
-  margin-right:10px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .tweet-header-icons img {
-  margin-right:2px;
-  margin-left:10px;
-  height:40px;
-  font-size:14px;
-  vertical-align:middle;
+  margin-right: 2px;
+  margin-left: 10px;
+  height: 40px;
+  font-size: 14px;
+  vertical-align: middle;
 }
 
 .tweet-text {
-  margin-left:25px;
-  
+  margin-left: 25px;
 }
 
 hr {
-  width:96%;
-  border:2px solid grey;
+  width: 96%;
+  border: 2px solid grey;
 }
 
 .tweet-footer {
-  display:flex;
-  font-size:14px;
-  justify-content:space-between;
-  margin-left:10px;
-  margin-right:10px;
-  align-items:center;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
 }
 
 i {
-  color:#4056A1;
+  color: #4056A1;
 }
 
 #tweet:hover {
-  box-shadow:5px 5px 0 rgba(0,0,200,0.2);
+  box-shadow: 5px 5px 0 rgba(0, 0, 200, 0.2);
 }
 
 .tweet-footer-icons,
 .tweet-footer-info {
-  display:inline;
-  margin-right:15px;
-  margin-left:15px;
+  display: inline;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .tweet-footer-icons {
-  display:flex;
+  display: flex;
   justify-content: space-around;
-  width:70px;
+  width: 70px;
 }
 
 .tweet-footer-icons i:hover {
-  color:orange;
+  color: orange;
 }
 
 .tweet-header-handle {
-  color:rgba(128,128,128,0.5);
-  margin-right:15px;
-  font-size:22px;
+  color: rgba(128, 128, 128, 0.5);
+  margin-right: 15px;
+  font-size: 22px;
 }
 
 #error-message {
- display:none;
- color:red;
- overflow:auto;
- margin-top:10px;
- border:3px solid red;
- height:50px;
- vertical-align:middle;
+  display: none;
+  color: red;
+  overflow: auto;
+  margin-top: 10px;
+  border: 3px solid red;
+  height: 50px;
+  vertical-align: middle;
 }
 
 .scroll-top {
-  display:none;
+  display: none;
   background-color: red;
-  height:60px;
-  width:60px;
-  position:fixed;
-  bottom:10px;
-  right:10px;
-  cursor:pointer;
-  border-radius:50px;
-
-  display:flex;
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  border-radius: 50px;
+  display: flex;
   align-items: center;
   justify-content: center;
   transform: scale(0.9);
-  transition:0.3s ease-in-out transform;
+  transition: 0.3s ease-in-out transform;
 }
 
 .scroll-top:hover {
@@ -154,29 +154,25 @@ i {
 }
 
 .scroll-top i {
-  color:white;
-  width:50%;
-  font-size:30px;
+  color: white;
+  width: 50%;
+  font-size: 30px;
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   #responsive-flex {
-    display:flex;
-    flex-direction:row;
-     padding-top:200px; 
+    display: flex;
+    flex-direction: row;
+    padding-top: 200px;
   }
-
   #avatar-name {
-    width:40%;
-    height:50%;
-    margin-top:30px;
-    margin-left:auto;
-    
+    width: 40%;
+    height: 50%;
+    margin-top: 30px;
+    margin-left: auto;
   }
-
   .container {
-    width:40%;
-    margin:auto;
-    
+    width: 40%;
+    margin: auto;
   }
 }
