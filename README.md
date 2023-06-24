@@ -1,6 +1,6 @@
 # Tweeter Project
 
-Welcome to Tweeter, a simple and stylish single-page Twitter clone that allows you to express yourself in 0 characters or less. Whether you want to share your thoughts, engage with others, or stay updated with the latest trends, Tweeter has got you covered!
+Welcome to Tweeter, a simple and stylish single-page Twitter clone that allows you to express yourself in 140 characters or less. Whether you want to share your thoughts, engage with others, or stay updated with the latest trends, Tweeter has got you covered!
 
 This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their front-end and back-end skills.
 
@@ -20,6 +20,12 @@ Tweeter leverages a range of technologies and tools, including:
 - JavaScript: Adding interactivity and dynamic behavior to the application.
 - Node.js and Express: Providing the server-side runtime environment and handling backend functionality.
 - jQuery and AJAX: Simplifying DOM manipulation and enabling asynchronous communication with the server.
+
+## Final Product
+
+
+![Desktop Image](./public/images/Desktop.png)
+![Mobile view](./public/images/mobile.png)
 
 
 ## Getting Started
