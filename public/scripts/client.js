@@ -86,7 +86,7 @@ $(document).ready(function() {
     $("#tweet-content").focus();  
   });
   
-  //posts the tweet if it is not empty and more than > 140 characters
+  //posts the tweet if it is not empty and not more than 140 characters
   $("#form-id").on("submit", function (e) {
     e.preventDefault();
     const inputLength = $("#tweet-content").val().length;
