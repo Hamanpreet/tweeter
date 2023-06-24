@@ -13,13 +13,12 @@
   background-color: orange;
   background-image: url("/images/back-pattern.png");
   background-size:cover;
-}
 
-.avatar {
+  .avatar {
   margin-bottom:-50px;
-}
+  }
 
-h2 {
-  padding-top:10px;
+  #name {
+    font-size:30px;
+  }
 }
-

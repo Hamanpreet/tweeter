@@ -1,19 +1,13 @@
-#form-id {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-#name {
-  font-size: 30px;
-}
-
 .new-tweet {
   display: none;
   margin-top: 20px;
 }
-
-#tweet-content {
+.new-tweet #form-id {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.new-tweet #tweet-content {
   background-color: inherit;
   border-bottom-color: grey;
   border-left: none;
@@ -26,26 +20,23 @@
   font-weight: bold;
 }
 
-#tweet-button {
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.bottom #tweet-button {
   background-color: #4056A1;
   color: #FFFFFF;
   font-family: Bungee;
   outline: none;
   border: none;
 }
-
-.bottom {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.counter {
+.bottom .counter {
   font-family: Bungee;
   font-size: 20px;
 }
-
-.counter-red {
+.bottom .counter-red {
   color: red;
 }
 
@@ -57,6 +48,9 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
+#tweet:hover {
+  box-shadow: 5px 5px 0 rgba(0, 0, 200, 0.2);
+}
 
 .tweet-header {
   display: flex;
@@ -64,13 +58,17 @@
   margin-left: 10px;
   margin-right: 10px;
 }
-
-.tweet-header-icons img {
+.tweet-header .tweet-header-icons img {
   margin-right: 2px;
   margin-left: 10px;
   height: 40px;
   font-size: 14px;
   vertical-align: middle;
+}
+.tweet-header .tweet-header-handle {
+  color: rgba(128, 128, 128, 0.5);
+  margin-right: 15px;
+  font-size: 22px;
 }
 
 .tweet-text {
@@ -90,36 +88,22 @@ hr {
   margin-right: 10px;
   align-items: center;
 }
-
-i {
+.tweet-footer i {
   color: #4056A1;
 }
-
-#tweet:hover {
-  box-shadow: 5px 5px 0 rgba(0, 0, 200, 0.2);
-}
-
-.tweet-footer-icons,
-.tweet-footer-info {
+.tweet-footer .tweet-footer-icons,
+.tweet-footer .tweet-footer-info {
   display: inline;
   margin-right: 15px;
   margin-left: 15px;
 }
-
-.tweet-footer-icons {
+.tweet-footer .tweet-footer-icons {
   display: flex;
   justify-content: space-around;
   width: 70px;
 }
-
-.tweet-footer-icons i:hover {
+.tweet-footer .tweet-footer-icons i:hover {
   color: orange;
-}
-
-.tweet-header-handle {
-  color: rgba(128, 128, 128, 0.5);
-  margin-right: 15px;
-  font-size: 22px;
 }
 
 #error-message {
@@ -167,7 +151,7 @@ i {
   }
   #avatar-name {
     width: 40%;
-    height: 50%;
+    height: 40%;
     margin-top: 30px;
     margin-left: auto;
   }

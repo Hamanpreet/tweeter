@@ -84,29 +84,29 @@ $(document).ready(function () {
     $("#tweet-content").focus();  
     $("#form-id").on("submit", function (e) {
       e.preventDefault();
-      var inputLength = $("#tweet-content").val().length;
+      let inputLength = $("#tweet-content").val().length;
       if (inputLength === 0) {
-        var errorMessage = "You cannot post an empty tweet.";
+        let errorMessage = "You cannot post an empty tweet.";
         $("#error-message").text(errorMessage).slideDown("slow");
-
-      } else if (inputLength > 140) {
-        var errorMessage = "Tweet shouldn't have more than 140 characters.";
+        return;
+      } 
+      if (inputLength > 140) {
+        const errorMessage = "Tweet shouldn't have more than 140 characters.";
         $("#error-message").text(errorMessage).slideDown("slow");
-      } else {
+        return;
+      } 
         $("#error-message").slideUp("slow");
         const data = $("#form-id").serialize();
         $.post("/tweets", data)
-          .then(res => {
-            loadTweets();
-            document.getElementById("form-id").reset();
-            jQuery(".counter").text("140");
-            $(".new-tweet").slideUp();
-
-          })
+          .then(loadTweets)
           .catch(err => {
             console.log(err);
           });
-      }
+      
+        $(".counter").text("140");
+        $("#tweet-content").val(" ");
+        $(".new-tweet").slideUp();
+
     })
   });
 });

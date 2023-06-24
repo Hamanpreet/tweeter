@@ -9,11 +9,9 @@
   background-image: url("/images/back-pattern.png");
   background-size: cover;
 }
-
-.avatar {
+#avatar-name .avatar {
   margin-bottom: -50px;
 }
-
-h2 {
-  padding-top: 10px;
+#avatar-name #name {
+  font-size: 30px;
 }

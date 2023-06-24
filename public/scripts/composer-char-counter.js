@@ -5,8 +5,8 @@
 $(document).ready(function() {
   $("#tweet-content").on("input", function() {
     //get the value of text-area
-    var inputValue = $(this).val();
-    var inputLength = inputValue.length;
+    const inputValue = $(this).val();
+    const inputLength = inputValue.length;
     //transverse up, find & update the counter with latest value 
     $(this).closest('.new-tweet').find(".counter").text(140 - inputLength);
     if (inputLength > 140) {
@@ -31,6 +31,7 @@ $(document).ready(function() {
     window.scroll(0,0);
     $(".new-tweet").slideDown();
     $("#tweet-content").focus();
+    $('')
   });
 
 });
