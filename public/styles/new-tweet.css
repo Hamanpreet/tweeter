@@ -1,3 +1,9 @@
+/*
+  Separate file for declaring variables using SASS
+*/
+/*
+  Styling the main container in this file.
+*/
 .new-tweet {
   display: none;
   margin-top: 20px;

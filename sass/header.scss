@@ -1,3 +1,6 @@
+/*
+  Header part where user name and avatar appears in the center
+*/
 @mixin verticalCenter($direction) {
   display:flex;
   flex-direction:$direction;

@@ -1,3 +1,6 @@
+/*
+  Header part where user name and avatar appears in the center
+*/
 #avatar-name {
   display: flex;
   flex-direction: column;

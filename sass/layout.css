@@ -26,15 +26,7 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-/* .container {
-  display:flex;
-  flex-direction:column;
-  background-color: white;
 
-
-  text-align:left;
-  color:grey;
-} */
 .container {
   display: flex;
   width: 90%;

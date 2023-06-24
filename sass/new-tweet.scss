@@ -1,7 +1,7 @@
 @import '_variables';
-
-
-
+/*
+  Styling the main container in this file.
+*/
 .new-tweet {
   display: none;
   margin-top:20px;
@@ -44,7 +44,6 @@
     font-size: 20px;
   }
 
-  
   .counter-red {
     color:$error-color;
   }
@@ -125,13 +124,7 @@ hr {
 
 }
 
-
-
-
-
-
-
-
+//error-message wheen tweet is empty or too long
 #error-message {
  display:none;
  color:$error-color;
@@ -142,6 +135,7 @@ hr {
  vertical-align:middle;
 }
 
+//scroll-top button in right corner,takes to top of page
 .scroll-top {
   display:none;
   background-color: $error-color;
@@ -170,6 +164,7 @@ hr {
   font-size:30px;
 }
 
+//Desktop (two column view)
 @media screen and (min-width:1024px) {
   #responsive-flex {
     display:flex;
